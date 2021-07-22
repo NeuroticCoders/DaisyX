@@ -33,7 +33,6 @@ from DaisyX.services.redis import redis
 from DaisyX.services.telethon import tbot
 
 from .utils.covert import convert_size
-from .utils.language import get_strings_dec
 from .utils.message import need_args_dec
 from .utils.notes import BUTTONS, get_parsed_note_list, send_note, t_unparse_note_item
 from .utils.term import chat_term
@@ -270,10 +269,3 @@ async def __stats__():
         len(REGISTRED_COMMANDS), len(LOADED_MODULES)
     )
     return text
-
-
-@get_strings_dec("owner_stuff")
-async def __user_info__(message, user_id, strings):
-    global skemmers
-    if user_id in skemmers:
-        return strings["sudo_crown"]
